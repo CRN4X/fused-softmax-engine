@@ -73,6 +73,7 @@ Expected performance:
 | Frequency | 100 MHz | ≥ 100 MHz |
 | Dynamic Power | ~500 mW | ≤ 500 mW |
 
+---
 
 ## Outputs
 
