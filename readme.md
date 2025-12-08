@@ -56,7 +56,7 @@ Expected metrics:
 LUTs     : 1602
 DSPs     : 1
 Registers: 3477
-Memory   : 968 bytes
+Memory   : 584 bytes
 Power    : 102 mW @ 100 MHz
 Latency  : 4291 cycles per attention row
 ```
