@@ -35,8 +35,9 @@ These matrices are used as input stimuli for RTL simulation.
 ### **2. Run RTL Simulation**
 Open ```Vivado 2024.2```
 Create a new project targeting ```Kintex UltraScale+ KCU116```
-Add all .v source files from src/ and the .xdc file from constraints/
-Set testbench.v as the top module
+Add all the source files from src/ directory
+Add the testbench file ```top_qkt_softmax.sv``` and the input test vector text files from testbench/ directory as simulation sources
+Also add XDC file from the constraints/ directory as constraints
 Launch behavioral simulation to verify functionality using generated binary matrices
 Confirm MAE < 2% compared to FP32 reference (verified via waveform or log output)
 
@@ -52,12 +53,12 @@ On‑chip memory footprint
 
 Expected metrics:
 ```
-LUTs     : ~1586
+LUTs     : 1602
 DSPs     : 1
-Registers: 3466
+Registers: 3477
 Memory   : 968 bytes
-Power    : ~500 mW @ 100 MHz
-Latency  : 4290 cycles per attention row
+Power    : 102 mW @ 100 MHz
+Latency  : 4291 cycles per attention row
 ```
 
 
@@ -71,7 +72,7 @@ Expected performance:
 | MAE | 0.98% | < 2.0% |
 | Effective Reciprocal Precision | 9-bit | ≥ 9-bit |
 | Frequency | 100 MHz | ≥ 100 MHz |
-| Dynamic Power | ~500 mW | ≤ 500 mW |
+| Dynamic Power | 102 mW | ≤ 500 mW |
 
 ---
 
