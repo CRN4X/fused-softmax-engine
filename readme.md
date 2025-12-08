@@ -34,7 +34,7 @@ These matrices are used as input stimuli for RTL simulation.
 
 ### **2. Run RTL Simulation**
 Open ```Vivado 2024.2```
-Create a new project targeting ```Kintex UltraScale+ KCU116``
+Create a new project targeting ```Kintex UltraScale+ KCU116```
 Add all .v source files from src/ and the .xdc file from constraints/
 Set testbench.v as the top module
 Launch behavioral simulation to verify functionality using generated binary matrices
