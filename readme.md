@@ -20,26 +20,27 @@ It implements a **three‑pass streaming architecture** that reduces on‑chip m
 ## How to Use
 
 ### **1. Generate Quantized Q and K Matrices**
-Run the Python script to generate Q, K, and Kᵀ matrices from BERT-base-uncased embeddings and quantize them to INT8:
+Run the following file from the data/ directory to generate Q and K matrices from BERT-base-uncased embeddings and quantize them to INT8:
 ```cd data
-python generate_data.py
+autoAiDataGeneration.ipynb file
 ```
 
 This will create the following files:
 ```
 Q_matrix_fixed_scale.txt
 K_matrix_fixed_scale.txt
+Q_float_normalized_fixed_scale
+K_float_normalized_fixed_scale
 ```
-These matrices are used as input stimuli for RTL simulation.
+The first two files are used as input to RTL Softmax engine and the last two to measure MAE%
 
 ### **2. Run RTL Simulation**
-Open ```Vivado 2024.2```
-Create a new project targeting ```Kintex UltraScale+ KCU116```
-Add all the source files from src/ directory
-Add the testbench file ```top_qkt_softmax.sv``` and the input test vector text files from testbench/ directory as simulation sources
-Also add XDC file from the constraints/ directory as constraints
-Launch behavioral simulation to verify functionality using generated binary matrices
-Confirm MAE < 2% compared to FP32 reference (verified via waveform or log output)
+- Open ```Vivado 2024.2``` software application and create a new project targeting ```Kintex UltraScale+ KCU116```
+- Add all the source files from src/ directory
+- Add the testbench file ```top_qkt_softmax.sv``` from testbench/ directory and the input test vector text files from the data/ directory as simulation sources
+- Also add XDC file from the constraints/ directory as constraints
+- Launch behavioral simulation to verify functionality using generated binary matrices
+- Confirm MAE < 2% compared to FP32 reference (verified via waveform or log output)
 
 
 ### **3. Synthesize and Implement**
