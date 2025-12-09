@@ -22,7 +22,7 @@ It implements a **three‑pass streaming architecture** that reduces on‑chip m
 ### **1. Generate Quantized Q and K Matrices**
 Run the following file from the data/ directory to generate Q and K matrices from BERT-base-uncased embeddings and quantize them to INT8:
 ```cd data
-autoAiDataGeneration.ipynb file
+autoAiDataGeneration.ipynb
 ```
 
 This will create the following files:
@@ -32,7 +32,7 @@ K_matrix_fixed_scale.txt
 Q_float_normalized_fixed_scale
 K_float_normalized_fixed_scale
 ```
-The first two files are used as input to RTL Softmax engine and the last two to measure MAE%
+The first two files are used as input to RTL Softmax engine and the last two to measure MAE%. Further the first cell has flags (if set to True) will gnerate QKᵀ product and softmax matrices
 
 ### **2. Run RTL Simulation**
 - Open ```Vivado 2024.2``` software application and create a new project targeting ```Kintex UltraScale+ KCU116```
